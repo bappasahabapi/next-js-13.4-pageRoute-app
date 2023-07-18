@@ -1,40 +1,44 @@
-import Link from "next/link";
-import { Button, Space } from 'antd';
 
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
+const { Header, Content, Footer } = Layout;
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
   return (
-    <div>
-      <h1>This is homepage</h1>
-      <Button type="primary">Primary Button</Button>
-      <br />
-      <hr />
-      <p>Catch all routes</p>
-      <Link href="/news">Nested news home page </Link><br /><br />
-      <Link href="/news/1">/news/1</Link><br /><br />
-      <Link href="/news/1/ddd">/news/1/anything catch routes</Link><br /><br />
-      <hr />
-      <br />
-      <p>Dynamic routing of Products</p>
-      <Link href="/products">Nested Products home page </Link><br /><br />
-      <Link href="/products/1">Dynamic /products/1 </Link><br /><br />
-      <Link href="/products/kjkj">Dynamic /products/kjkj </Link><br /><br />
-
-      <hr />
-      <p>Nested routing</p>
-      <br />
-      <Link href="/article/news">Nested news page</Link><br /><br />
-      <Link href="/article/blog">Nested Blog page</Link><br /><br />
-      <Link href="/article">Article main page</Link><br /><br />
-      <Link href="/article/posts">Nested posts page</Link><br /><br />
-      <Link href="/article/posts/post">Nested post page</Link><br /><br />
-      <hr />
-      <p>File base routing</p>
-      <Link href="/about">About page</Link>
-      <br />
-      <Link href="/contact">Contact page</Link>
-    </div>
+    <Layout className="layout">
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          items={new Array(15).fill(null).map((_, index) => {
+            const key = index + 1;
+            return {
+              key,
+              label: `nav ${key}`,
+            };
+          })}
+        />
+      </Header>
+      <Content style={{ padding: '0 50px' }}>
+        <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="site-layout-content" style={{ background: colorBgContainer,
+        minHeight:"100vh"
+        }}>
+          Content
+        </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+    </Layout>
   );
 };
 
