@@ -1,10 +1,19 @@
 import Link from "next/link";
+import { Button, Space } from 'antd';
+
 
 
 const HomePage = () => {
   return (
     <div>
       <h1>This is homepage</h1>
+      <Button type="primary">Primary Button</Button>
+      <br />
+      <hr />
+      <p>Catch all routes</p>
+      <Link href="/news">Nested news home page </Link><br /><br />
+      <Link href="/news/1">/news/1</Link><br /><br />
+      <Link href="/news/1/ddd">/news/1/anything catch routes</Link><br /><br />
       <hr />
       <br />
       <p>Dynamic routing of Products</p>
