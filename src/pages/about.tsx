@@ -1,4 +1,5 @@
-import React from 'react';
+import RootLayout from '@/components/Layouts/RootLayout';
+import React, { ReactElement } from 'react';
 
 const About = () => {
     return (
@@ -9,3 +10,11 @@ const About = () => {
 };
 
 export default About;
+
+About.getLayout=function getLayout(page:ReactElement){
+    return(
+        <RootLayout>
+            {page}
+        </RootLayout>
+    )
+}

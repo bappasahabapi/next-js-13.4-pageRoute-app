@@ -18,3 +18,7 @@ pnpm dev
 
 ####    7: Catch all routes and custom 404 error page also Add CSS Component library antd
 
+####    8: Basic Layout System
+
+-    First we make a wrapper component using header and footer. 
+
